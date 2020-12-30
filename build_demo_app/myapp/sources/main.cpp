@@ -2,9 +2,11 @@
 
 #include "mylib1.h"
 #include "mylib2.h"
+#include "my_api.h"
 
 int main()
 {
+    my_api_state_t state = MY_API_STATE_READY;
     int x, y, n;
     FILE *f;
 
@@ -13,6 +15,8 @@ int main()
        printf("failed to read input: x y\n");
        return 1;
     }
+
+    printf("next state: %d\n", my_api_next_state(state));
 
     printf("myexe calling mylib1_function:\n");
     x = mylib1_function(x);
